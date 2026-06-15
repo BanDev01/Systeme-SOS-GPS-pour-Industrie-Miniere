@@ -1,15 +1,15 @@
 /* ─── Variables CSS globales — thème dark industriel minier ─── */
 :root {
   /* Fonds */
-  --bg-primary:    #0d1117;
-  --bg-card:       #161b22;
-  --bg-card-hover: #1c2230;
-  --bg-input:      #0d1117;
-  --bg-header:     #0d1117;
+  --bg-primary:    #12171f;
+  --bg-card:       #1a2130;
+  --bg-card-hover: #202a3d;
+  --bg-input:      #12171f;
+  --bg-header:     #12171f;
 
   /* Bordures */
-  --border:        #30363d;
-  --border-light:  #21262d;
+  --border:        #2a3548;
+  --border-light:  #1e2a3d;
 
   /* Textes */
   --text-primary:   #e6edf3;
