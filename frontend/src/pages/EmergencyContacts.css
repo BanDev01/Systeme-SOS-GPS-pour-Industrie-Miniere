@@ -11,73 +11,81 @@
 }
 
 .page-header h2 {
-  font-size: 2rem;
-  color: #333;
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
+/* ─── Boutons globaux ─── */
 .btn-primary {
-  background: #667eea;
-  color: white;
+  background: var(--accent);
+  color: #0d1117;
   border: none;
   padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   font-size: 0.95rem;
-  font-weight: 500;
-  transition: background 0.2s;
+  font-weight: 600;
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
 .btn-primary:hover {
-  background: #5568d4;
+  background: var(--accent-hover);
+  box-shadow: var(--glow-accent);
 }
 
 .btn-secondary {
-  background: white;
-  color: #333;
-  border: 1px solid #ddd;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
   padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   font-size: 0.95rem;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
 .btn-secondary:hover {
-  background: #f5f5f5;
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
 }
 
 .error-banner {
-  background: #fde8e8;
-  color: #c0392b;
+  background: rgba(255, 68, 68, 0.1);
+  color: var(--danger);
   padding: 0.8rem 1.2rem;
-  border-radius: 6px;
-  border: 1px solid #f5c6cb;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 68, 68, 0.3);
+  font-size: 0.9rem;
 }
 
-/* Modal */
+/* ─── Modal ─── */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  backdrop-filter: blur(2px);
 }
 
 .modal {
-  background: white;
-  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 2rem;
   width: 100%;
   max-width: 480px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg);
 }
 
 .modal h3 {
   margin: 0 0 1.5rem;
-  font-size: 1.3rem;
-  color: #333;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .modal form {
@@ -90,24 +98,32 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
   font-weight: 500;
 }
 
 .modal input,
 .modal select {
-  padding: 0.6rem 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  color: var(--text-primary);
   font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .modal input:focus,
 .modal select:focus {
-  border-color: #667eea;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.15);
+}
+
+.modal select option {
+  background: var(--bg-card);
+  color: var(--text-primary);
 }
 
 .checkbox-label {
@@ -115,10 +131,11 @@
   align-items: center;
   gap: 0.5rem !important;
   font-weight: normal !important;
+  cursor: pointer;
 }
 
 .form-error {
-  color: #c0392b;
+  color: var(--danger);
   font-size: 0.85rem;
   margin: 0;
 }
@@ -130,58 +147,67 @@
   margin-top: 0.5rem;
 }
 
-/* Grid */
+/* ─── Grille contacts ─── */
 .contacts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
+/* ─── Groupe par type ─── */
 .contact-group {
-  background: white;
-  border-radius: 10px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
 }
 
 .group-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
   margin: 0 0 1rem;
   padding-bottom: 0.8rem;
   border-bottom: 2px solid;
 }
 
-.group-title.type-security { color: #e74c3c; border-color: #e74c3c; }
-.group-title.type-hospital { color: #3498db; border-color: #3498db; }
-.group-title.type-police   { color: #9b59b6; border-color: #9b59b6; }
-.group-title.type-internal { color: #27ae60; border-color: #27ae60; }
+.group-title.type-security { color: var(--danger);  border-color: var(--danger); }
+.group-title.type-hospital { color: var(--info);    border-color: var(--info); }
+.group-title.type-police   { color: var(--purple);  border-color: var(--purple); }
+.group-title.type-internal { color: var(--success); border-color: var(--success); }
 
 .group-count {
-  background: #f5f5f5;
-  color: #666;
+  background: var(--border);
+  color: var(--text-secondary);
   border-radius: 20px;
   padding: 0.15rem 0.6rem;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 .empty-group {
-  color: #bbb;
-  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
   text-align: center;
   padding: 1rem 0;
+  font-style: italic;
 }
 
+/* ─── Card contact ─── */
 .contact-card {
-  border: 1px solid #e8e8e8;
-  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
   padding: 0.9rem;
   margin-bottom: 0.7rem;
-  transition: box-shadow 0.2s;
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.15s, box-shadow 0.15s;
 }
 
 .contact-card:last-child {
@@ -189,11 +215,12 @@
 }
 
 .contact-card:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow);
 }
 
 .contact-card.inactive {
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
 .contact-header {
@@ -205,33 +232,26 @@
 
 .contact-name {
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   font-size: 0.95rem;
 }
 
 .active-badge {
-  font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  padding: 0.18rem 0.55rem;
   border-radius: 20px;
   font-weight: 600;
 }
 
-.active-badge.active {
-  background: #d5f5e3;
-  color: #1e8449;
-}
-
-.active-badge.inactive {
-  background: #f5f5f5;
-  color: #999;
-}
+.active-badge.active   { background: rgba(39, 174, 96, 0.15);  color: var(--success); border: 1px solid rgba(39, 174, 96, 0.4); }
+.active-badge.inactive { background: var(--border);             color: var(--text-muted); }
 
 .contact-info {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   font-size: 0.85rem;
-  color: #555;
+  color: var(--text-secondary);
   margin-bottom: 0.7rem;
 }
 
@@ -242,20 +262,23 @@
 }
 
 .btn-icon {
-  background: none;
-  border: 1px solid #e8e8e8;
-  border-radius: 6px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   padding: 0.3rem 0.5rem;
   cursor: pointer;
   font-size: 0.85rem;
-  transition: background 0.15s;
+  color: var(--text-secondary);
+  transition: background 0.15s, color 0.15s;
 }
 
 .btn-icon:hover {
-  background: #f5f5f5;
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
 }
 
 .btn-icon.btn-danger:hover {
-  background: #fde8e8;
-  border-color: #f5c6cb;
+  background: rgba(255, 68, 68, 0.1);
+  border-color: var(--danger);
+  color: var(--danger);
 }
