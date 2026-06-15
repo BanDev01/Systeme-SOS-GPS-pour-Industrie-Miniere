@@ -77,6 +77,9 @@
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
+  position: relative;
+  z-index: 0;          /* isole le z-index de Leaflet dans ce contexte */
+  overflow: hidden;
 }
 
 .map-container h3 {
