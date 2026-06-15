@@ -5,25 +5,12 @@ export const Footer = () => {
 
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-section">
-          <p className="footer-title">🚨 SOS GPS</p>
-          <p className="footer-subtitle">Système de sécurité et d'alerte d'urgence</p>
-        </div>
-        <div className="footer-section">
-          <p className="footer-info">Industrie Minière</p>
-          <p className="footer-location">République Démocratique du Congo</p>
-        </div>
-        <div className="footer-section">
-          <p className="footer-copyright">
-            © {currentYear} SOS GPS. Tous droits réservés.
-          </p>
-          <p className="footer-version">Version 1.0.0</p>
-        </div>
-      </div>
+      <span className="footer-brand">⛏ SOS GPS</span>
+      <span className="footer-status">
+        <span className="status-dot" />
+        Système opérationnel
+      </span>
+      <span className="footer-meta">v1.0.0 &nbsp;·&nbsp; © {currentYear} SOS GPS</span>
     </footer>
   );
 };
-
-
-

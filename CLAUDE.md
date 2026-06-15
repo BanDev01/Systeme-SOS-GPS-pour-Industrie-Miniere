@@ -237,11 +237,12 @@ npm run db:setup      # Setup initial complet
 
 Objectif : design industriel minier, dark mode, haute lisibilité sous stress, convivialité opérateur.
 
-### Étape 1 — Fondations : thème global dark + palette industrielle
-- Remplacer `#f5f5f5` / blanc par fond sombre `#0d1117` / cartes `#161b22`
-- Nouvelle palette : orange `#f39c12` (primaire), rouge `#ff4444` (critique), vert `#27ae60` (safe)
-- Variables CSS globales dans `index.css` pour piloter tout le thème
-- Fichiers : `frontend/src/index.css`, `frontend/src/components/Layout.css`
+### ~~Étape 1 — Fondations : thème global dark + palette industrielle~~ ✅
+- ~~Remplacer `#f5f5f5` / blanc par fond sombre `#0d1117` / cartes `#161b22`~~
+- ~~Nouvelle palette : orange `#f39c12` (primaire), rouge `#ff4444` (critique), vert `#27ae60` (safe)~~
+- ~~Variables CSS globales dans `index.css` pour piloter tout le thème~~
+- ~~Fichiers : `frontend/src/index.css`, `frontend/src/components/Layout.css`~~
+- Fond final retenu : `#12171f` (acier industriel) — tous les CSS de pages réécrits, fix z-index Leaflet inclus
 
 ### Étape 2 — Sidebar verticale + barre de statut critique
 - Remplacer la navbar horizontale par une sidebar gauche sombre fixe avec icônes + labels
