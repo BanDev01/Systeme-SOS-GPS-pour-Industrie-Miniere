@@ -1,0 +1,36 @@
+{
+  "name": "sos-gps-mining",
+  "version": "1.0.0",
+  "description": "Système SOS GPS pour l'industrie minière",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "mobile",
+    "shared"
+  ],
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:mobile": "cd mobile && npm run start",
+    "install:all": "npm install && npm run install:backend && npm run install:frontend && npm run install:mobile",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:mobile": "cd mobile && npm install",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "sos",
+    "gps",
+    "mining",
+    "safety",
+    "emergency"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+
+
+

@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Worker {
+  id                  String    @id @default(uuid())
+  name                String
+  employeeId          String    @unique
+  department          String?
+  status              String    @default("ACTIVE") // ACTIVE, INACTIVE, EMERGENCY
+  lastLatitude        Float?
+  lastLongitude       Float?
+  lastLocationUpdate  DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  
+  alerts              Alert[]
+}
+
+model Alert {
+  id              String    @id @default(uuid())
+  workerId        String
+  type            String    // ACCIDENT, MEDICAL, SECURITY, GENERAL
+  priority        String    @default("HIGH") // LOW, MEDIUM, HIGH, CRITICAL
+  status          String    @default("ACTIVE") // ACTIVE, ACKNOWLEDGED, RESOLVED, CANCELLED
+  latitude        Float
+  longitude       Float
+  message         String?
+  acknowledgedBy  String?
+  acknowledgedAt  DateTime?
+  resolvedAt      DateTime?
+  externalServicesNotified String? // Liste des services externes notifiés (JSON string)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  worker          Worker    @relation(fields: [workerId], references: [id], onDelete: Cascade)
+  
+  @@index([workerId])
+  @@index([status])
+  @@index([type])
+  @@index([priority])
+  @@index([createdAt])
+}
+
+model EmergencyContact {
+  id              String    @id @default(uuid())
+  name            String
+  type            String    // SECURITY, HOSPITAL, POLICE, INTERNAL
+  phone           String
+  email           String?
+  isActive        Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
